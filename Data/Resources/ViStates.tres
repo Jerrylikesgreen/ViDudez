@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ViStates" load_steps=2 format=3 uid="uid://hsxn3cgefr4a"]
+
+[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_states.gd" id="1_0lm5d"]
+
+[resource]
+script = ExtResource("1_0lm5d")
+vi_states = ["Idle", "Sleeping"]
