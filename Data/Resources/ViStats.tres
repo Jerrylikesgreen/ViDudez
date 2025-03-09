@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="ViStats" load_steps=2 format=3 uid="uid://dp0ta2mdjr1sq"]
 
-[ext_resource type="Script" path="res://Scripts/Vi_Dudez/Stats_Resource_Script.gd" id="1_na58i"]
+[ext_resource type="Script" path="res://Scripts/Stats_Resource_Script.gd" id="1_na58i"]
 
 [resource]
 script = ExtResource("1_na58i")
+base_stats = {
+"Age": 0,
+"Exp": 0.0
+}
 combat_stats = {
 "Atk": 1,
 "HP": 1

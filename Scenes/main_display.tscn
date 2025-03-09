@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://clgykfylo60yh"]
+[gd_scene load_steps=6 format=3 uid="uid://clgykfylo60yh"]
 
 [ext_resource type="PackedScene" uid="uid://cylwv1mv808rk" path="res://Scenes/world.tscn" id="1_evya0"]
 [ext_resource type="PackedScene" uid="uid://qkthx3m67xrn" path="res://Scenes/background.tscn" id="2_fhw4i"]
 [ext_resource type="PackedScene" uid="uid://dsfbaomflj0xm" path="res://Scenes/vi_dudez.tscn" id="3_6rumt"]
+[ext_resource type="PackedScene" uid="uid://dmpwv03u5aajy" path="res://inventory.tscn" id="4_4l36n"]
 [ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://second_display.tscn" id="4_mk1fg"]
 
 [node name="Main_Display" type="CenterContainer"]
@@ -21,9 +22,14 @@ size_flags_vertical = 4
 [node name="Background" parent="." instance=ExtResource("2_fhw4i")]
 
 [node name="ViDudez" parent="." instance=ExtResource("3_6rumt")]
-scale = Vector2(0.009, 0.009)
+
+[node name="Inventory" parent="ViDudez" instance=ExtResource("4_4l36n")]
 
 [node name="Second_Display" parent="." instance=ExtResource("4_mk1fg")]
 title = "PLAYER INPUT"
 position = Vector2i(220, 420)
 extend_to_title = true
+
+[connection signal="_time_passed" from="World" to="ViDudez/ViDudez_Brain" method="_on_world__time_passed"]
+
+[editable path="ViDudez"]

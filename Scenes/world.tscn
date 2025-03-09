@@ -1,18 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cylwv1mv808rk"]
+[gd_scene load_steps=2 format=3 uid="uid://cylwv1mv808rk"]
 
 [ext_resource type="Script" path="res://Scripts/World/world.gd" id="1_pshhg"]
-[ext_resource type="Script" path="res://Scripts/World/timer.gd" id="1_xsoyj"]
-[ext_resource type="Script" path="res://Scripts/World/game_loop_manager.gd" id="3_57jb5"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_pshhg")
-
-[node name="Game_Clock" type="Timer" parent="."]
-wait_time = 5.0
-script = ExtResource("1_xsoyj")
-
-[node name="Game_Loop_Manager" type="Node" parent="."]
-script = ExtResource("3_57jb5")
-
-[connection signal="_Clock_Ticked" from="Game_Clock" to="." method="_on_timer__clock_ticked"]
-[connection signal="timeout" from="Game_Clock" to="Game_Clock" method="_on_timeout"]

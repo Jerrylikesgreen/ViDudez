@@ -3,9 +3,10 @@ class_name World_
 
 @onready var GAME_STATE = "Main_Loop"
 @onready var CLOCK: float = 0.0
+@warning_ignore("unused_private_class_variable")
 @onready var _is_running: bool = false
 
-
+signal _time_passed 
 
 
 func _ready() -> void:
@@ -13,16 +14,13 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
-
-
-func _on_timer_clock_ticked() -> void:
-	pass # Replace with function body.
-
-
-func _clock_tick_count() -> void:
 	CLOCK += 0.1
-	_is_running = true
-
-func _check_is_running() -> bool:
-	return _is_running 
+	if CLOCK > 1:
+		CLOCK = 0.0
+		emit_signal("_time_passed")
+	pass
+	
+func _time_passing() -> void: 
+	@warning_ignore("standalone_expression")
+	_time_passed
+	pass# This is here to remove an anoying error. 
