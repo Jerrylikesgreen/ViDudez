@@ -13,7 +13,7 @@ class_name ViStats
 		"HP" : 001,
 		"Atk" : 001
 }
- ## needs / Energy, Joy, Hunger
+ ## needs / Energy, Happiness, Hunger
 @export var needs: Dictionary = {
 		"Hunger" : 100,
 		"Happiness" : 0.0, # Range of 0 to 1. Float. 

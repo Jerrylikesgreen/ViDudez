@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ViStats" load_steps=2 format=3 uid="uid://dp0ta2mdjr1sq"]
 
-[ext_resource type="Script" path="res://Scripts/Stats_Resource_Script.gd" id="1_na58i"]
+[ext_resource type="Script" path="res://Scripts/Items/Stats_Resource_Script.gd" id="1_37ojl"]
 
 [resource]
-script = ExtResource("1_na58i")
+script = ExtResource("1_37ojl")
 base_stats = {
 "Age": 0,
 "Exp": 0.0
@@ -14,6 +14,6 @@ combat_stats = {
 }
 needs = {
 "Energy": 100,
-"Hunger": 100,
-"Joy": 100
+"Happiness": 0.0,
+"Hunger": 100
 }

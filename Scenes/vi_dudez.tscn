@@ -23,8 +23,14 @@ height = 100.0
 scale = Vector2(0.009, 0.009)
 script = ExtResource("1_uj1sw")
 
-[node name="ViDudez_Brain" type="Node" parent="."]
+[node name="ViDudezBrain" type="Node" parent="."]
 script = ExtResource("1_sx8ei")
+
+[node name="HungerBar" type="ProgressBar" parent="ViDudezBrain"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(100, 100)
@@ -33,3 +39,6 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_e1s1m")
+
+[connection signal="_hunger_pain" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__hunger_pain"]
+[connection signal="_poop" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__poop"]

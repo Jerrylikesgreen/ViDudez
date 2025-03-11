@@ -30,6 +30,6 @@ title = "PLAYER INPUT"
 position = Vector2i(220, 420)
 extend_to_title = true
 
-[connection signal="_time_passed" from="World" to="ViDudez/ViDudez_Brain" method="_on_world__time_passed"]
+[connection signal="_time_passed" from="World" to="ViDudez/ViDudezBrain" method="_on_world__time_passed"]
 
 [editable path="ViDudez"]
