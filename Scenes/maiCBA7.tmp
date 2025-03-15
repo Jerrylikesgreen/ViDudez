@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://clgykfylo60yh"]
+
+[ext_resource type="PackedScene" uid="uid://cylwv1mv808rk" path="res://Scenes/world.tscn" id="1_evya0"]
+[ext_resource type="PackedScene" uid="uid://qkthx3m67xrn" path="res://Scenes/background.tscn" id="2_fhw4i"]
+[ext_resource type="PackedScene" uid="uid://dsfbaomflj0xm" path="res://Scenes/vi_dudez.tscn" id="3_6rumt"]
+[ext_resource type="PackedScene" uid="uid://dmpwv03u5aajy" path="res://inventory.tscn" id="4_4l36n"]
+
+[node name="MainDisplay" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="World" parent="." instance=ExtResource("1_evya0")]
+
+[node name="SpawnFlag" type="Control" parent="World/Spawner" index="0"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 100.0
+offset_right = 110.0
+offset_bottom = 140.0
+
+[node name="Background" parent="." instance=ExtResource("2_fhw4i")]
+
+[node name="ViDudez" parent="." instance=ExtResource("3_6rumt")]
+
+[node name="AnimatedSprite2D" parent="ViDudez" index="1"]
+position = Vector2(0, 0)
+metadata/_edit_pinned_properties_ = [&"position"]
+
+[node name="PlayerInput" parent="ViDudez" index="3"]
+position = Vector2i(240, 494)
+
+[node name="Inventory" parent="ViDudez" instance=ExtResource("4_4l36n")]
+
+[connection signal="pressed" from="ViDudez/PlayerInput/CenterContainer/GridContainer/Food" to="World/Spawner" method="_on_food_pressed"]
+
+[editable path="World"]
+[editable path="ViDudez"]
+[editable path="ViDudez/PlayerInput"]

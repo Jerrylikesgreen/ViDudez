@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cylwv1mv808rk"]
+[gd_scene load_steps=3 format=3 uid="uid://cylwv1mv808rk"]
 
 [ext_resource type="Script" path="res://Scripts/World/world.gd" id="1_pshhg"]
+[ext_resource type="Script" path="res://Scenes/spawner.gd" id="2_0bfuu"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_pshhg")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("2_0bfuu")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyhe1dc260rls"]
+
+[ext_resource type="Texture2D" uid="uid://c83hx2xl8uu71" path="res://Data/PNG/Apple.svg" id="1_qpk0m"]
+[ext_resource type="PackedScene" uid="uid://ckduwt0h2rbbu" path="res://Scripts/Items/apple.tscn" id="2_yu0cg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(412, 348.75)
+scale = Vector2(59.8571, 54.6538)
+texture = ExtResource("1_qpk0m")
+
+[node name="Apple" parent="." instance=ExtResource("2_yu0cg")]

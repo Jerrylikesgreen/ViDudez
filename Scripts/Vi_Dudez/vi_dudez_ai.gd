@@ -34,7 +34,7 @@ func _ready() -> void:
 	needs = ViDudez_Stats.get("needs")
 	base_stats = ViDudez_Stats.get("base_stats")
 	print(needs)
-	
+
 
 #-----------------------------[ViDudez Process]-----------------------------------------------------
 
@@ -52,7 +52,7 @@ func _process(_delta: float) -> void:
 
 func getting_hungry() -> void: 
 	if time_passed > 10: 
-		needs.Hunger -= 1
+		needs.Hunger -= 5
 		time_passed = 0
 		print("Got Hungrier")
 
@@ -105,7 +105,7 @@ func age() -> void:
 
 
 
-#-----------------------------[ViDudez Happiness]-----------------------------------------------------
+#-----------------------------[ViDudez Happiness Logic]-----------------------------------------------------
 func gain_happiness(Happiness:float) -> float: 
 	if base_stats.Happiness == 1:
 		print("Maxed Happyness - Triggering Evolution.")
@@ -126,7 +126,7 @@ func lose_happines(Happiness:float) -> void:
 
 
 
-#-----------------------------[ViDudez Eat]-----------------------------------------------------
+#-----------------------------[ViDudez Eating logic]-----------------------------------------------------
 func digesting(hunger_value)-> void:
 	if _is_hungry == true:
 		needs.Hunger += hunger_value

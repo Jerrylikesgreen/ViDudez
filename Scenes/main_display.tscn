@@ -3,33 +3,67 @@
 [ext_resource type="PackedScene" uid="uid://cylwv1mv808rk" path="res://Scenes/world.tscn" id="1_evya0"]
 [ext_resource type="PackedScene" uid="uid://qkthx3m67xrn" path="res://Scenes/background.tscn" id="2_fhw4i"]
 [ext_resource type="PackedScene" uid="uid://dsfbaomflj0xm" path="res://Scenes/vi_dudez.tscn" id="3_6rumt"]
+[ext_resource type="PackedScene" uid="uid://ckduwt0h2rbbu" path="res://Scripts/Items/apple.tscn" id="3_vsb2d"]
 [ext_resource type="PackedScene" uid="uid://dmpwv03u5aajy" path="res://inventory.tscn" id="4_4l36n"]
-[ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://second_display.tscn" id="4_mk1fg"]
 
-[node name="Main_Display" type="CenterContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="_World" type="Node2D"]
+
+[node name="Apple" parent="." instance=ExtResource("3_vsb2d")]
+position = Vector2(200, 303)
+
+[node name="MainDisplay" type="CenterContainer" parent="."]
+z_index = -3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="World" parent="." instance=ExtResource("1_evya0")]
+[node name="Background" parent="MainDisplay" instance=ExtResource("2_fhw4i")]
+layer = -2
 
-[node name="Background" parent="." instance=ExtResource("2_fhw4i")]
+[node name="World" parent="MainDisplay" instance=ExtResource("1_evya0")]
 
-[node name="ViDudez" parent="." instance=ExtResource("3_6rumt")]
+[node name="SpawnFlag" type="Control" parent="MainDisplay/World/Spawner" index="0"]
+show_behind_parent = true
+light_mask = 0
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 100.0
+offset_right = 96.0
+offset_bottom = 140.0
+mouse_filter = 2
 
-[node name="Inventory" parent="ViDudez" instance=ExtResource("4_4l36n")]
+[node name="ViDudez" parent="MainDisplay" instance=ExtResource("3_6rumt")]
+position = Vector2(328, 390)
 
-[node name="Second_Display" parent="." instance=ExtResource("4_mk1fg")]
-title = "PLAYER INPUT"
-position = Vector2i(220, 420)
-extend_to_title = true
+[node name="HungerBar" parent="MainDisplay/ViDudez/ViDudezBrain" index="0"]
+mouse_filter = 2
 
-[connection signal="_time_passed" from="World" to="ViDudez/ViDudezBrain" method="_on_world__time_passed"]
+[node name="AnimatedSprite2D" parent="MainDisplay/ViDudez" index="1"]
+position = Vector2(0, 0)
+metadata/_edit_pinned_properties_ = [&"position"]
 
-[editable path="ViDudez"]
+[node name="PlayerInput" parent="MainDisplay/ViDudez" index="3"]
+position = Vector2i(240, 133)
+
+[node name="ColorRect" parent="MainDisplay/ViDudez/PlayerInput" index="0"]
+mouse_filter = 2
+
+[node name="CenterContainer" parent="MainDisplay/ViDudez/PlayerInput" index="1"]
+mouse_filter = 2
+
+[node name="Inventory" parent="MainDisplay/ViDudez" instance=ExtResource("4_4l36n")]
+mouse_filter = 2
+
+[connection signal="pressed" from="MainDisplay/ViDudez/PlayerInput/CenterContainer/GridContainer/Food" to="MainDisplay/World/Spawner" method="_on_food_pressed"]
+
+[editable path="MainDisplay/World"]
+[editable path="MainDisplay/ViDudez"]
+[editable path="MainDisplay/ViDudez/PlayerInput"]

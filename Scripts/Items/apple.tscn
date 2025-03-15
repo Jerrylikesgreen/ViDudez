@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckduwt0h2rbbu"]
+
+[ext_resource type="Texture2D" uid="uid://c83hx2xl8uu71" path="res://Data/PNG/Apple.svg" id="1_crbk8"]
+[ext_resource type="Script" path="res://Scripts/Items/apple.gd" id="2_y15ty"]
+[ext_resource type="Resource" uid="uid://0reuefjlix11" path="res://Data/Resources/Apple.tres" id="3_jq568"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlldh"]
+
+[node name="Apple" type="Sprite2D"]
+z_index = 10
+position = Vector2(65, 75)
+scale = Vector2(2, 2)
+texture = ExtResource("1_crbk8")
+script = ExtResource("2_y15ty")
+resource = ExtResource("3_jq568")
+
+[node name="AppleSignal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AppleSignal"]
+shape = SubResource("CircleShape2D_mlldh")
+debug_color = Color(0.910899, 0.185438, 0.578054, 0.42)

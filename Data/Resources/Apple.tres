@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Apple" load_steps=2 format=3 uid="uid://0reuefjlix11"]
+[gd_resource type="Resource" script_class="Apple_Resource" load_steps=3 format=3 uid="uid://0reuefjlix11"]
 
-[ext_resource type="Script" path="res://Scripts/Apple.gd" id="1_torr3"]
+[ext_resource type="Script" path="res://Scripts/Items/Food/Apple.gd" id="1_torr3"]
+[ext_resource type="Texture2D" uid="uid://c83hx2xl8uu71" path="res://Data/PNG/Apple.svg" id="2_4tnjc"]
 
 [resource]
 script = ExtResource("1_torr3")
 hunger_value = 10
+sprite = ExtResource("2_4tnjc")
 _is_rotten = false
 _is_eatten = false
