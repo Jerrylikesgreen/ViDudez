@@ -48,13 +48,14 @@ _A short description or tagline of your game. Example:_
 
 
 📂 Project Structure 📂 
-📁 Scenes/            - All main scene files
-📁 Scripts/           - GDScript files
-📁 Items/             - Custom .tres item resources
-📁 UI/                - HUD, inventory, menus
-📁 Art/               - Sprites, textures
-📁 Audio/             - Sound effects & music
-📄 project.godot      - Godot project file
+
+- Scenes/            - All main scene files
+- Scripts/           - GDScript files
+- Items/             - Custom .tres item resources
+- UI/                - HUD, inventory, menus
+- Art/               - Sprites, textures
+- Audio/             - Sound effects & music
+- project.godot      - Godot project file
 
 ---
 
