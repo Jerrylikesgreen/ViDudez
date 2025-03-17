@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckduwt0h2rbbu"]
+[gd_scene load_steps=7 format=3 uid="uid://ckduwt0h2rbbu"]
 
 [ext_resource type="Texture2D" uid="uid://c83hx2xl8uu71" path="res://Data/PNG/Apple.svg" id="1_crbk8"]
 [ext_resource type="Script" path="res://Scripts/Items/apple.gd" id="2_y15ty"]
@@ -6,16 +6,49 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlldh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65rp6"]
+bg_color = Color(0.0537922, 0.128007, 0.0545401, 1)
+
+[sub_resource type="Theme" id="Theme_2rsju"]
+Button/styles/normal = SubResource("StyleBoxFlat_65rp6")
+
 [node name="Apple" type="Sprite2D"]
 z_index = 10
 position = Vector2(65, 75)
 scale = Vector2(2, 2)
 texture = ExtResource("1_crbk8")
 script = ExtResource("2_y15ty")
-resource = ExtResource("3_jq568")
+apple_resource = ExtResource("3_jq568")
 
-[node name="AppleSignal" type="Area2D" parent="."]
+[node name="AppleArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AppleSignal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AppleArea"]
 shape = SubResource("CircleShape2D_mlldh")
 debug_color = Color(0.910899, 0.185438, 0.578054, 0.42)
+
+[node name="Options" type="MenuBar" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -6.5
+offset_right = -7.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grab" type="Button" parent="Options"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = -33.0
+offset_right = 68.0
+offset_bottom = -10.0
+theme = SubResource("Theme_2rsju")
+text = "Grab"
+icon = ExtResource("1_crbk8")
+icon_alignment = 2
+
+[connection signal="pressed" from="Options/Grab" to="." method="_on_grab_pressed"]
