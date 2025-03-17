@@ -1,13 +1,11 @@
 # 🕹️ [ViDudez]
 
-_A short description or tagline of your game. Example:_
-> A fast-paced 2D action platformer where apples aren't just fruit — they're weapons. 🍎💥
 
 ---
 
 ## 📦 About
 
-**[Your Game Title]** is a [2D/3D] [genre] game built in **Godot [version]**.
+**[ViDudez]** is a [2D] [Tamagachi Clone] built in **Godot 4.x**.
 
 - 🔧 Built with custom resources, inventory system, and interactive objects
 - 🎨 Pixel art / Low poly / Stylized (customize based on your game style)
@@ -19,10 +17,6 @@ _A short description or tagline of your game. Example:_
 ## 🎮 Features
 
 - 🍎 Dynamic inventory system using custom resources
-- 🧍 Character controller with item pickup
-- ✨ Smooth UI with drag-and-drop items
-- 📦 Save/load system (optional)
-- 🎧 Sound and music with Godot's built-in audio tools
 
 ---
 
