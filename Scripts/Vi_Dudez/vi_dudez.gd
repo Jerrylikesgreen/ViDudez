@@ -1,10 +1,12 @@
 extends CharacterBody2D
 class_name ViDudez_Body
+
+
 @onready var inventory: Inventory = $Inventory
 @onready var collision_box: CollisionShape2D = $CollisionShape2D
 @onready var brain: ViDudez_Brain = $ViDudezBrain
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var Spawner: Spawner = $"../World/Spawner"
 var _is_hungry_notification: bool = false
 
 func _on_apple_instance_grabbed(item, int):

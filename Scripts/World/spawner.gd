@@ -4,7 +4,6 @@ class_name Spawner
 ## Spawner Node
 
 
-
 #-----------------------------[ OnReady Variables ]----------------------------------------
 
 
@@ -18,14 +17,23 @@ class_name Spawner
 ##-----------------------------[ apple_scene ]----------------------------------------
 var apple_scene = preload("res://Scripts/Items/apple.tscn")
 
-
+var _moving_flag: bool = false
 #-----------------------------[ On Ready ]----------------------------------------
 
 func _ready() -> void:
 	pass 
 
 
-#-----------------------------[ Process ]----------------------------------------
+#-----------------------[ Input ]----------------------------------------
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if Input.is_key_pressed(KEY_SPACE):
+			var mouse_position = get_viewport().get_mouse_position()
+			spawn_flag.position = mouse_position
+
+#-----------------------[ Process ]----------------------------------------
  
 func _process(_delta: float) -> void:
 	pass

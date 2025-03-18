@@ -16,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
 
 [node name="Background" parent="MainDisplay" instance=ExtResource("2_fhw4i")]
 layer = -2
@@ -24,17 +23,20 @@ layer = -2
 [node name="World" parent="MainDisplay" instance=ExtResource("1_evya0")]
 
 [node name="SpawnFlag" type="Control" parent="MainDisplay/World/Spawner" index="0"]
-show_behind_parent = true
-light_mask = 0
-z_as_relative = false
-y_sort_enabled = true
+modulate = Color(0.760784, 0.0901961, 0.278431, 1)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 56.0
 offset_top = 100.0
-offset_right = 96.0
-offset_bottom = 140.0
-mouse_filter = 2
+offset_right = 56.0
+offset_bottom = 100.0
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="MainDisplay/World/Spawner/SpawnFlag"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
+mouse_filter = 1
 
 [node name="ViDudez" parent="MainDisplay" instance=ExtResource("3_6rumt")]
 position = Vector2(328, 390)
