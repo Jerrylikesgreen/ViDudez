@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1hgcxejk5cqx"]
+
+[ext_resource type="Script" path="res://Scenes/Items/item_slot.gd" id="1_bqj8s"]
+
+[node name="ItemSlot" type="Panel"]
+script = ExtResource("1_bqj8s")

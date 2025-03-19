@@ -56,13 +56,8 @@ mouse_filter = 2
 [node name="CenterContainer" parent="MainDisplay/ViDudez/PlayerInput" index="1"]
 mouse_filter = 2
 
-[node name="PlayerButtons" parent="MainDisplay/ViDudez/PlayerInput/CenterContainer" index="0"]
-visible = true
-
-[node name="InventoryDisplay" parent="MainDisplay/ViDudez/PlayerInput" index="2"]
-visible = false
-
-[connection signal="pressed" from="MainDisplay/ViDudez/PlayerInput/CenterContainer/PlayerButtons/Food" to="MainDisplay/World/Spawner" method="_on_food_pressed"]
+[connection signal="pressed" from="MainDisplay/ViDudez/PlayerInput/CenterContainer/GridContainer/Food" to="MainDisplay/World/Spawner" method="_on_food_pressed"]
+[connection signal="pressed" from="MainDisplay/ViDudez/PlayerInput/CenterContainer/GridContainer/Inventory" to="MainDisplay/ViDudez" method="_on_inventory_pressed"]
 
 [editable path="MainDisplay/World"]
 [editable path="MainDisplay/ViDudez"]

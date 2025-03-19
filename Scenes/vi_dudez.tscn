@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsfbaomflj0xm"]
+[gd_scene load_steps=8 format=3 uid="uid://dsfbaomflj0xm"]
 
 [ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="1_sx8ei"]
 [ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_uj1sw"]
 [ext_resource type="Texture2D" uid="uid://1gqilqvlhgsf" path="res://icon.svg" id="2_6nc14"]
 [ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_d03ht"]
+[ext_resource type="Script" path="res://Scripts/Items/inventory.gd" id="5_rsx7u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w74pd"]
 animations = [{
@@ -43,6 +44,16 @@ shape = SubResource("CapsuleShape2D_e1s1m")
 
 [node name="PlayerInput" parent="." instance=ExtResource("4_d03ht")]
 position = Vector2i(240, 485)
+
+[node name="PlayerButtons" parent="PlayerInput/CenterContainer" index="0"]
+visible = false
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_rsx7u")
 
 [connection signal="_hunger_pain" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__hunger_pain"]
 [connection signal="_poop" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__poop"]

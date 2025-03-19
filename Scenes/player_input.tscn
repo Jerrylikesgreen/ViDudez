@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxowpht26602t"]
+[gd_scene load_steps=3 format=3 uid="uid://cxowpht26602t"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player_input.gd" id="1_dl78o"]
+[ext_resource type="Script" path="res://Scenes/Items/inventory_display.gd" id="2_y3cck"]
 
 [node name="PlayerInput" type="Window"]
 position = Vector2i(0, 36)
@@ -23,27 +24,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+[node name="PlayerButtons" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Food" type="Button" parent="CenterContainer/GridContainer"]
+[node name="Food" type="Button" parent="CenterContainer/PlayerButtons"]
 layout_mode = 2
 text = "Food"
 
-[node name="Eat" type="Button" parent="CenterContainer/GridContainer"]
+[node name="Inventory" type="Button" parent="CenterContainer/PlayerButtons"]
 layout_mode = 2
 text = "Button 2"
 
-[node name="Sleep" type="Button" parent="CenterContainer/GridContainer"]
+[node name="Sleep" type="Button" parent="CenterContainer/PlayerButtons"]
 layout_mode = 2
 text = " Button 3"
 
-[node name="Clean" type="Button" parent="CenterContainer/GridContainer"]
+[node name="Clean" type="Button" parent="CenterContainer/PlayerButtons"]
 layout_mode = 2
 text = "Button 4"
 
-[connection signal="pressed" from="CenterContainer/GridContainer/Food" to="." method="_on_food_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Eat" to="." method="_on_eat_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Sleep" to="." method="_on_sleep_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Clean" to="." method="_on_clean_pressed"]
+[node name="InventoryDisplay" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+script = ExtResource("2_y3cck")
+
+[connection signal="pressed" from="CenterContainer/PlayerButtons/Food" to="." method="_on_food_pressed"]
+[connection signal="pressed" from="CenterContainer/PlayerButtons/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="CenterContainer/PlayerButtons/Sleep" to="." method="_on_sleep_pressed"]
+[connection signal="pressed" from="CenterContainer/PlayerButtons/Clean" to="." method="_on_clean_pressed"]

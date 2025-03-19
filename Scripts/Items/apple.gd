@@ -1,5 +1,5 @@
 extends Sprite2D
-class_name AppleSprite
+class_name Apple
 
 @export var apple_resource: Resource 
 
