@@ -40,10 +40,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	hunger_bar.value = needs.Hunger
-	if needs.Hunger <= 50:
+	if needs.Hunger <= 60:
 		_is_hungry = true
-		print("_is_hunger got triggered.")
-		print(_is_hungry)
 	
 	pass
 
@@ -127,22 +125,25 @@ func lose_happines(Happiness:float) -> void:
 
 
 #-----------------------------[ViDudez Eating logic]-----------------------------------------------------
-func digesting(hunger_value)-> void:
-	if _is_hungry == true:
+func digesting(item_name, hunger_value) -> void:
+	if _is_hungry:
 		needs.Hunger += hunger_value
+		
 		if needs.Hunger >= 100:
 			needs.Hunger = 100
 			_is_hungry = false
-			_poop
-			print("Ate Food: %d" % hunger_value)
+			print("Ate %s: %d" % [item_name, hunger_value])
 			print("Is Full")
-		if needs.Hunger <= 50:
+		
+		elif needs.Hunger <= 50:
 			_is_hungry = true
 			print("Still Hungry")
-			print("Ate Food: %d" % hunger_value)
+			print("Ate %s: %d" % [item_name, hunger_value])
+		
+		else:
+			print("Ate %s: %d" % [item_name, hunger_value])
 	else:
 		print("Not Hungry")
-		pass
 
 
 func hunger_pain():
@@ -156,9 +157,10 @@ func hunger_pain():
 #-----------------------------[ViDudez Signals In]-----------------------------------------------------
 
 func _on_world__time_passed() -> void:
-	time_passed += 0.1
+	time_passed += 10
 	getting_hungry()
 	age()
+	print(time_passed)
 
 
 	

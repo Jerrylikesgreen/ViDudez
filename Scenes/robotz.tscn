@@ -1,29 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsfbaomflj0xm"]
+[gd_scene load_steps=13 format=3 uid="uid://ca01v3hc4usub"]
 
-[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="1_sx8ei"]
-[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_uj1sw"]
-[ext_resource type="Texture2D" uid="uid://c4y7ll1puwg12" path="res://Data/PNG/Idle.png" id="3_m4obg"]
-[ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_d03ht"]
-[ext_resource type="Script" path="res://Scripts/Items/inventory.gd" id="5_rsx7u"]
+[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_ddm08"]
+[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="2_xmad5"]
+[ext_resource type="Texture2D" uid="uid://c4y7ll1puwg12" path="res://Data/PNG/Idle.png" id="3_aem1m"]
+[ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_6upki"]
+[ext_resource type="Script" path="res://Scripts/Items/inventory.gd" id="5_ad416"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir6ib"]
-atlas = ExtResource("3_m4obg")
+atlas = ExtResource("3_aem1m")
 region = Rect2(0, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjiqa"]
-atlas = ExtResource("3_m4obg")
+atlas = ExtResource("3_aem1m")
 region = Rect2(80, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwy7d"]
-atlas = ExtResource("3_m4obg")
+atlas = ExtResource("3_aem1m")
 region = Rect2(160, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdtd3"]
-atlas = ExtResource("3_m4obg")
+atlas = ExtResource("3_aem1m")
 region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqc7u"]
-atlas = ExtResource("3_m4obg")
+atlas = ExtResource("3_aem1m")
 region = Rect2(320, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w74pd"]
@@ -53,12 +53,12 @@ animations = [{
 radius = 45.0
 height = 100.0
 
-[node name="ViDudez_Body" type="CharacterBody2D"]
+[node name="Robotz" type="CharacterBody2D"]
 scale = Vector2(0.009, 0.009)
-script = ExtResource("1_uj1sw")
+script = ExtResource("1_ddm08")
 
 [node name="ViDudezBrain" type="Node" parent="."]
-script = ExtResource("1_sx8ei")
+script = ExtResource("2_xmad5")
 
 [node name="HungerBar" type="ProgressBar" parent="ViDudezBrain"]
 anchors_preset = 10
@@ -67,21 +67,24 @@ offset_bottom = 27.0
 grow_horizontal = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(100, 100)
+position = Vector2(34666.7, 24222.2)
+scale = Vector2(500, 500)
 sprite_frames = SubResource("SpriteFrames_w74pd")
 animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0300849
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_e1s1m")
+
+[node name="PlayerInput" parent="." instance=ExtResource("4_6upki")]
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_rsx7u")
-
-[node name="PlayerInput" parent="." instance=ExtResource("4_d03ht")]
+script = ExtResource("5_ad416")
 
 [connection signal="_hunger_pain" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__hunger_pain"]
 [connection signal="_poop" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__poop"]

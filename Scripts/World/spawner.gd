@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 #------------------------------[ Spawn Logic ]---------------------------------------
 func spawn_apple() -> void:
 	var apple_instance = apple_scene.instantiate()
-	var vidudez = get_parent().get_parent().get_node("ViDudez")
+	var vidudez = get_parent().get_parent().get_node("Robotz")
 	vidudez.add_child(apple_instance)
 	apple_instance.global_position = spawn_flag.global_position
 	apple_instance.set_scale(Vector2(250,250))

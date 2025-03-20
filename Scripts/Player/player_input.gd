@@ -37,3 +37,7 @@ func _on_inventory_pressed() -> void:
 func display_inventory() -> void:
 	inventory_display.spawn_item_slot
 	
+
+
+func _on_eat_pressed() -> void:
+	pass # Replace with function body.

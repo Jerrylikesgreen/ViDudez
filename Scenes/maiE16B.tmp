@@ -39,10 +39,6 @@ mouse_filter = 1
 
 [node name="Robotz" parent="MainDisplay" instance=ExtResource("3_fvn73")]
 
-[node name="ViDudezBrain" parent="MainDisplay/Robotz" index="0"]
-active_state = null
-evolution_stage = null
-
 [connection signal="_time_passed" from="MainDisplay/World" to="MainDisplay/Robotz/ViDudezBrain" method="_on_world__time_passed"]
 [connection signal="pressed" from="MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Food" to="MainDisplay/World/Spawner" method="_on_food_pressed"]
 [connection signal="pressed" from="MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Inventory" to="MainDisplay/Robotz" method="_on_inventory_pressed"]

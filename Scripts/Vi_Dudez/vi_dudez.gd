@@ -13,8 +13,8 @@ var _is_hungry_notification: bool = false
 
 @warning_ignore("shadowed_global_identifier")
 func _on_apple_instance_grabbed(Item, int):
-	inventory._set_item(Item, int)
-	
+	inventory.add_item(Item)
+
 	print("Apple was grabbed!")
 
 
@@ -40,3 +40,15 @@ func _on_vi_dudez_brain__poop() -> void:
 
 func _on_inventory_pressed() -> void:
 	pass
+
+func _on_eat_pressed():
+	if inventory.pocket == null:
+		print("Error")
+		return
+	else:
+		var item_hunger_value = inventory.remove_item("Apple", 1)
+		brain.digesting("Apple", item_hunger_value)
+		print(item_hunger_value)
+		print("_on_eat_pressed")
+		
+	

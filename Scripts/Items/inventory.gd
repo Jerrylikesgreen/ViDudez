@@ -1,33 +1,38 @@
 extends Control
-class_name Inventory 
+class_name Inventory
+
+@export var pocket: Array[Item] = [
+	
+]
 
 
-@export var pocket: Array = []
 
+#--------------------[Add Item From Pocket]-------------------------------
+func add_item(new_item: Item) -> void:
+	for existing_item in pocket:
+		if existing_item.item_name == new_item.item_name:
+			var can_stack = existing_item.max_stack - existing_item.quantity
+			var to_move = min(can_stack, new_item.quantity)
+			existing_item.quantity += to_move
+			new_item.quantity -= to_move
 
-func _ready() -> void:
-	pass
+			if new_item.quantity > 0:
+				var leftover = new_item.duplicate()
+				pocket.append(leftover)
+			return
+	pocket.append(new_item)
+	
+	
 
-func _process(_delta: float) -> void:
-	pass
-
-#------------------[ Adding Item into Pocket ]----------------------------------------------------
-func _set_item(item: Item, quantity: int) -> void:
-	for i in range(quantity):
-		pocket.append(item)
-		
-#------------------[ Taking Item out of Pocket ]----------------------------------------------------
-func _get_item(item_name: String, quantity: int) -> void:
+#--------------------[Remove Item From Pocket]-------------------------------
+func remove_item(item_name: String, quantity: int) -> int:
 	for i in pocket:
-		match i[0]:
-			item_name:
-				i[i] -=1
-				print(item_name, " -1 ", i[1], " left" )
-				if i[1] <= 0:
-					pocket.erase(1)
-					print()
-				return
+		if i.item_name == item_name:
+			var amount_removed = min(quantity, i.quantity)
+			var total_value = i.hunger_value * amount_removed
+			i.quantity -= amount_removed
+			if i.quantity <= 0:
+				pocket.erase(i)
 			
-			
-	# logic to parse through Array if item is in list remove 1 from quantity if => 1 remove item from list.
-	pocket.erase(item_name)
+			return total_value
+	return 0

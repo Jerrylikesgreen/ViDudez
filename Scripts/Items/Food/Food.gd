@@ -2,7 +2,7 @@ extends Item
 class_name Food 
 
 
-
+@export var hunger_value: int = 0
 @export var _is_rotten: bool = false
 @export var _is_eatten: bool = false
 

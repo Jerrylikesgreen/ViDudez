@@ -5,3 +5,4 @@ class_name Item
 @export var icon: Texture2D
 @export var description: String
 @export var max_stack: int = 1
+@export var quantity: int = 1
