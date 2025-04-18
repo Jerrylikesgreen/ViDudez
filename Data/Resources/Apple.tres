@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Apple_" load_steps=3 format=3 uid="uid://0reuefjlix11"]
 
-[ext_resource type="Script" path="res://Scripts/Items/Food/apple_resource_script.gd" id="1_torr3"]
+[ext_resource type="Script" uid="uid://c0vgtc6njsc33" path="res://Scripts/Items/Food/apple_resource_script.gd" id="1_torr3"]
 [ext_resource type="Texture2D" uid="uid://c83hx2xl8uu71" path="res://Data/PNG/Apple.svg" id="2_4tnjc"]
 
 [resource]

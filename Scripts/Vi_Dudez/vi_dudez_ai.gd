@@ -128,23 +128,25 @@ func lose_happines(Happiness:float) -> void:
 func digesting(item_name, hunger_value) -> void:
 	if _is_hungry:
 		needs.Hunger += hunger_value
-		
+#-------
 		if needs.Hunger >= 100:
 			needs.Hunger = 100
 			_is_hungry = false
 			print("Ate %s: %d" % [item_name, hunger_value])
 			print("Is Full")
-		
+#-------
 		elif needs.Hunger <= 50:
 			_is_hungry = true
 			print("Still Hungry")
 			print("Ate %s: %d" % [item_name, hunger_value])
-		
+#-------
 		else:
 			print("Ate %s: %d" % [item_name, hunger_value])
+#-------
 	else:
 		print("Not Hungry")
 
+#-----------------------------[ViDudez Hunger Pain logic]-----------------------------------------------------
 
 func hunger_pain():
 	if _is_hungry == true:

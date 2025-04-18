@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://qkthx3m67xrn" path="res://Scenes/background.tscn" id="2_fhw4i"]
 [ext_resource type="PackedScene" uid="uid://ca01v3hc4usub" path="res://Scenes/robotz.tscn" id="3_fvn73"]
 
-[node name="_World" type="Node2D"]
+[node name="Node" type="Node"]
 
-[node name="MainDisplay" type="CenterContainer" parent="."]
+[node name="_World" type="Node2D" parent="."]
+
+[node name="MainDisplay" type="CenterContainer" parent="_World"]
 z_index = -3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,12 +18,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Background" parent="MainDisplay" instance=ExtResource("2_fhw4i")]
+[node name="Background" parent="_World/MainDisplay" instance=ExtResource("2_fhw4i")]
 layer = -2
 
-[node name="World" parent="MainDisplay" instance=ExtResource("1_evya0")]
+[node name="World" parent="_World/MainDisplay" instance=ExtResource("1_evya0")]
 
-[node name="SpawnFlag" type="Control" parent="MainDisplay/World/Spawner" index="0"]
+[node name="SpawnFlag" type="Control" parent="_World/MainDisplay/World/Spawner" index="0"]
 modulate = Color(0.760784, 0.0901961, 0.278431, 1)
 layout_mode = 3
 anchors_preset = 0
@@ -31,23 +33,23 @@ offset_right = 56.0
 offset_bottom = 100.0
 mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="MainDisplay/World/Spawner/SpawnFlag"]
+[node name="ColorRect" type="ColorRect" parent="_World/MainDisplay/World/Spawner/SpawnFlag"]
 layout_mode = 0
 offset_right = 10.0
 offset_bottom = 10.0
 mouse_filter = 1
 
-[node name="Robotz" parent="MainDisplay" instance=ExtResource("3_fvn73")]
+[node name="Robotz" parent="_World/MainDisplay" instance=ExtResource("3_fvn73")]
 
-[node name="ViDudezBrain" parent="MainDisplay/Robotz" index="0"]
+[node name="ViDudezBrain" parent="_World/MainDisplay/Robotz" index="0"]
 active_state = null
 evolution_stage = null
 
-[connection signal="_time_passed" from="MainDisplay/World" to="MainDisplay/Robotz/ViDudezBrain" method="_on_world__time_passed"]
-[connection signal="pressed" from="MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Food" to="MainDisplay/World/Spawner" method="_on_food_pressed"]
-[connection signal="pressed" from="MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Inventory" to="MainDisplay/Robotz" method="_on_inventory_pressed"]
-[connection signal="pressed" from="MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Eat" to="MainDisplay/Robotz" method="_on_eat_pressed"]
+[connection signal="_time_passed" from="_World/MainDisplay/World" to="_World/MainDisplay/Robotz/ViDudezBrain" method="_on_world__time_passed"]
+[connection signal="pressed" from="_World/MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Food" to="_World/MainDisplay/World/Spawner" method="_on_food_pressed"]
+[connection signal="pressed" from="_World/MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Inventory" to="_World/MainDisplay/Robotz" method="_on_inventory_pressed"]
+[connection signal="pressed" from="_World/MainDisplay/Robotz/PlayerInput/CenterContainer/PlayerButtons/Eat" to="_World/MainDisplay/Robotz" method="_on_eat_pressed"]
 
-[editable path="MainDisplay/World"]
-[editable path="MainDisplay/Robotz"]
-[editable path="MainDisplay/Robotz/PlayerInput"]
+[editable path="_World/MainDisplay/World"]
+[editable path="_World/MainDisplay/Robotz"]
+[editable path="_World/MainDisplay/Robotz/PlayerInput"]

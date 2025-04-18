@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxowpht26602t"]
 
-[ext_resource type="Script" path="res://Scripts/Player/player_input.gd" id="1_dl78o"]
-[ext_resource type="Script" path="res://Scenes/Items/inventory_display.gd" id="2_y3cck"]
+[ext_resource type="Script" uid="uid://3jowsxv82idg" path="res://Scripts/Player/player_input.gd" id="1_dl78o"]
+[ext_resource type="Script" uid="uid://cobqjtp8rlgof" path="res://Scenes/Items/inventory_display.gd" id="2_y3cck"]
 
 [node name="PlayerInput" type="Window"]
 position = Vector2i(200, 350)

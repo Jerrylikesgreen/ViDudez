@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://ca01v3hc4usub"]
 
-[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_ddm08"]
-[ext_resource type="Script" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="2_xmad5"]
+[ext_resource type="Script" uid="uid://c5sxartb1mkjy" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_ddm08"]
+[ext_resource type="Script" uid="uid://cbk31v1eixysa" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="2_xmad5"]
 [ext_resource type="Texture2D" uid="uid://c4y7ll1puwg12" path="res://Data/PNG/Idle.png" id="3_aem1m"]
 [ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_6upki"]
-[ext_resource type="Script" path="res://Scripts/Items/inventory.gd" id="5_ad416"]
+[ext_resource type="Script" uid="uid://hjg5fnk1scr7" path="res://Scripts/Items/inventory.gd" id="5_ad416"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir6ib"]
 atlas = ExtResource("3_aem1m")
