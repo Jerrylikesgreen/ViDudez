@@ -1,90 +1,105 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca01v3hc4usub"]
+[gd_scene load_steps=13 format=3 uid="uid://bd4sjj8m8a7xm"]
 
-[ext_resource type="Script" uid="uid://c5sxartb1mkjy" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_ddm08"]
-[ext_resource type="Script" uid="uid://cbk31v1eixysa" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="2_xmad5"]
-[ext_resource type="Texture2D" uid="uid://c4y7ll1puwg12" path="res://Data/PNG/Idle.png" id="3_aem1m"]
-[ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_6upki"]
-[ext_resource type="Script" uid="uid://hjg5fnk1scr7" path="res://Scripts/Items/inventory.gd" id="5_ad416"]
+[ext_resource type="Script" uid="uid://c5sxartb1mkjy" path="res://Scripts/Vi_Dudez/vi_dudez.gd" id="1_x0k26"]
+[ext_resource type="Script" uid="uid://cbk31v1eixysa" path="res://Scripts/Vi_Dudez/vi_dudez_ai.gd" id="2_g1sfp"]
+[ext_resource type="Texture2D" uid="uid://c4y7ll1puwg12" path="res://Data/PNG/Idle.png" id="3_uifr0"]
+[ext_resource type="PackedScene" uid="uid://cxowpht26602t" path="res://Scenes/player_input.tscn" id="4_rrwx5"]
+[ext_resource type="Script" uid="uid://hjg5fnk1scr7" path="res://Scripts/Items/inventory.gd" id="5_j6pce"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir6ib"]
-atlas = ExtResource("3_aem1m")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o1gd"]
+atlas = ExtResource("3_uifr0")
 region = Rect2(0, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjiqa"]
-atlas = ExtResource("3_aem1m")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ee8m"]
+atlas = ExtResource("3_uifr0")
 region = Rect2(80, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwy7d"]
-atlas = ExtResource("3_aem1m")
+[sub_resource type="AtlasTexture" id="AtlasTexture_066by"]
+atlas = ExtResource("3_uifr0")
 region = Rect2(160, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdtd3"]
-atlas = ExtResource("3_aem1m")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlkub"]
+atlas = ExtResource("3_uifr0")
 region = Rect2(240, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqc7u"]
-atlas = ExtResource("3_aem1m")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm74x"]
+atlas = ExtResource("3_uifr0")
 region = Rect2(320, 0, 80, 80)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w74pd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_jst75"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ir6ib")
+"texture": SubResource("AtlasTexture_5o1gd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pjiqa")
+"texture": SubResource("AtlasTexture_1ee8m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jwy7d")
+"texture": SubResource("AtlasTexture_066by")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vdtd3")
+"texture": SubResource("AtlasTexture_nlkub")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iqc7u")
+"texture": SubResource("AtlasTexture_mm74x")
 }],
 "loop": true,
-"name": &"Idle",
-"speed": 5.0
+"name": &"default",
+"speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e1s1m"]
-radius = 45.0
-height = 100.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bcngc"]
+radius = 15.0
 
 [node name="Robotz" type="CharacterBody2D"]
-scale = Vector2(0.009, 0.009)
-script = ExtResource("1_ddm08")
+scale = Vector2(10, 10)
+script = ExtResource("1_x0k26")
 
-[node name="ViDudezBrain" type="Node" parent="."]
-script = ExtResource("2_xmad5")
-
-[node name="HungerBar" type="ProgressBar" parent="ViDudezBrain"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 27.0
-grow_horizontal = 2
+[node name="ViDudez_Brain" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_g1sfp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(34666.7, 24222.2)
-scale = Vector2(500, 500)
-sprite_frames = SubResource("SpriteFrames_w74pd")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.0300849
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_jst75")
+autoplay = "default"
+frame_progress = 0.451066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_e1s1m")
+unique_name_in_owner = true
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_bcngc")
 
-[node name="PlayerInput" parent="." instance=ExtResource("4_6upki")]
+[node name="PlayerInput" parent="." instance=ExtResource("4_rrwx5")]
+unique_name_in_owner = true
 
 [node name="Inventory" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_ad416")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("5_j6pce")
 
-[connection signal="_hunger_pain" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__hunger_pain"]
-[connection signal="_poop" from="ViDudezBrain" to="." method="_on_vi_dudez_brain__poop"]
+[node name="HungerBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -14.1
+offset_top = -6.1
+offset_right = 133.9
+offset_bottom = 20.9
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 2
+size_flags_vertical = 2
+min_value = 0.1
+value = 100.0
+exp_edit = true

@@ -5,12 +5,15 @@ class_name ViDudez_Brain
 ##                                             >                     Resource which contains an array called Vi States
 @onready var ViDudez_States: Resource = preload("res://Data/Resources/ViStates.tres")
 @onready var ViDudez_Stats: Resource = preload("res://Data/Resources/ViStats.tres")
+@onready var hunger_bar: ProgressBar = %HungerBar
 @onready var _is_hungry: bool = false
 @onready var base_stats = null
 @onready var combat_stats = null
 @onready var needs = null
 @onready var time_passed = 0.0
-@onready var hunger_bar = $HungerBar
+
+
+
 
 #-----------------------------[Export Variables]-----------------------------------------------------
 ##                                              >                       Holds current state - none currenrtly defined. 

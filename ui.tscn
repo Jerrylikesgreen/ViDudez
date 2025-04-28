@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b8lxso2j7wfai"]
+
+[node name="UI" type="Node"]
+
+[node name="HungerBar" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+min_value = 0.1
+value = 100.0
+exp_edit = true

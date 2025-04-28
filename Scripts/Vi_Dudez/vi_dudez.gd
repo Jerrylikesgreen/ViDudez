@@ -4,7 +4,8 @@ class_name ViDudez_Body
 
 @onready var inventory: Inventory = $Inventory
 @onready var collision_box: CollisionShape2D = $CollisionShape2D
-@onready var brain: ViDudez_Brain = $ViDudezBrain
+@onready var brain: ViDudez_Brain = %ViDudez_Brain
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @warning_ignore("shadowed_global_identifier")
 @onready var Spawner: Spawner = $"../World/Spawner"
